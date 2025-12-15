@@ -34,12 +34,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!videoModal || !youtubeIframe) return;
     youtubeIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
     videoModal.classList.add('show');
+    videoModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   }
   function closeVideoModal() {
     if (!videoModal || !youtubeIframe) return;
     youtubeIframe.src = '';
     videoModal.classList.remove('show');
+    videoModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
 
