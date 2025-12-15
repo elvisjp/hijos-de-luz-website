@@ -238,20 +238,17 @@ a:hover {
     align-items: center;
 }
 
-/* Header al hacer scroll */
-.main-header.scrolled,
-.main-header:not(.hero-section .main-header) {
+.main-header.scrolled {
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: var(--shadow-md);
 }
 
 .logo img {
-    height: 50px; /* Ajustar según logo real */
+    height: 50px;
     display: block;
 }
 
-/* Menú de Escritorio */
-.main-nav ul {
+.nav-list {
     list-style: none;
     display: flex;
     gap: var(--spacing-md);
@@ -270,9 +267,8 @@ a:hover {
     color: var(--color-primary);
 }
 
-/* Toggle de Menú Móvil */
 .mobile-nav-toggle {
-    display: none; /* Oculto por defecto en desktop */
+    display: none;
     z-index: 2000;
     border: 0;
     background: transparent;
@@ -280,7 +276,6 @@ a:hover {
     width: 40px;
     height: 40px;
     position: relative;
-    /* Icono de hamburguesa */
 }
 
 .mobile-nav-toggle::before,
@@ -302,15 +297,14 @@ a:hover {
     bottom: 10px;
 }
 
-/* Ícono de cierre (X) */
-.main-header[data-nav-visible="true"] .mobile-nav-toggle::before {
+.mobile-nav-toggle[aria-expanded="true"]::before {
     transform: rotate(45deg) translateY(8px);
     width: 100%;
     top: 50%;
     margin-top: -1.5px;
 }
 
-.main-header[data-nav-visible="true"] .mobile-nav-toggle::after {
+.mobile-nav-toggle[aria-expanded="true"]::after {
     transform: rotate(-45deg) translateY(-8px);
     width: 100%;
     bottom: 50%;
@@ -983,16 +977,13 @@ a:hover {
 
 /* Tablets y Móviles (Máx. 992px) */
 @media (max-width: 992px) {
-    /* Header Móvil */
     .main-nav {
-        /* Estado inicial del menú móvil (oculto) */
         position: fixed;
         top: 0;
         right: 0;
         width: 100%;
         height: 100%;
         background-color: rgba(255, 255, 255, 0.98);
-        display: none; /* Lo manejaremos con JS y data-attribute */
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -1001,13 +992,12 @@ a:hover {
         transition: transform 0.4s ease-in-out;
     }
 
-    /* Mostrar menú móvil */
-    .main-header[data-nav-visible="true"] .main-nav {
-        display: flex; 
+    .main-nav[data-visible="true"] {
         transform: translateX(0);
+        display: flex;
     }
 
-    .main-nav ul {
+    .nav-list {
         flex-direction: column;
         text-align: center;
         gap: var(--spacing-md);
@@ -1017,9 +1007,9 @@ a:hover {
         font-size: 1.5rem;
         padding: 0.5rem;
     }
-    
+
     .mobile-nav-toggle {
-        display: block; /* Mostrar botón de hamburguesa */
+        display: block;
     }
 
     /* Ajustes Generales */

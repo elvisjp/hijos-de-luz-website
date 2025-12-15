@@ -6,22 +6,23 @@
 // - scroll-to-top (smooth) y mostrar/ocultar botón
 
 document.addEventListener('DOMContentLoaded', function () {
-  // PRELOADER
-  const preloader = document.getElementById('preloader');
-  window.addEventListener('load', () => {
-    if (preloader) preloader.style.display = 'none';
-  });
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        window.addEventListener('load', () => {
+            preloader.classList.add('hidden');
+        });
+    }
 
-  // MOBILE NAV TOGGLE
-  const navToggle = document.querySelector('.mobile-nav-toggle');
-  const primaryNav = document.getElementById('primary-navigation');
-  if (navToggle && primaryNav) {
-    navToggle.addEventListener('click', () => {
-      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!expanded));
-      primaryNav.classList.toggle('open'); // .open en CSS debe mostrar el nav en móvil
-    });
-  }
+    const navToggle = document.querySelector('.mobile-nav-toggle');
+    const primaryNav = document.getElementById('primary-navigation');
+
+    if (navToggle && primaryNav) {
+        navToggle.addEventListener('click', () => {
+            const isVisible = primaryNav.getAttribute('data-visible') === 'true';
+            navToggle.setAttribute('aria-expanded', !isVisible);
+            primaryNav.setAttribute('data-visible', !isVisible);
+        });
+    }
 
   // VIDEO MODAL
   const videoTrigger = document.getElementById('video-trigger');
@@ -32,15 +33,13 @@ document.addEventListener('DOMContentLoaded', function () {
   function openVideoModal(videoId) {
     if (!videoModal || !youtubeIframe) return;
     youtubeIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-    videoModal.setAttribute('aria-hidden', 'false');
-    videoModal.style.display = 'flex';
+    videoModal.classList.add('show');
     document.body.style.overflow = 'hidden';
   }
   function closeVideoModal() {
     if (!videoModal || !youtubeIframe) return;
     youtubeIframe.src = '';
-    videoModal.setAttribute('aria-hidden', 'true');
-    videoModal.style.display = 'none';
+    videoModal.classList.remove('show');
     document.body.style.overflow = '';
   }
 
@@ -101,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Accessibility: close modal with ESC
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      if (videoModal && videoModal.getAttribute('aria-hidden') === 'false') {
+      if (videoModal && videoModal.classList.contains('show')) {
         closeVideoModal();
       }
     }
