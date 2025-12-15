@@ -198,8 +198,7 @@ a:hover {
 }
 
 #preloader.hidden {
-    opacity: 0;
-    visibility: hidden;
+    display: none !important;
 }
 
 .spinner {
@@ -885,6 +884,7 @@ a:hover {
 
 .video-modal.show {
     display: flex;
+    opacity: 1;
 }
 
 .video-modal-content {
