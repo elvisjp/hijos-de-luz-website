@@ -3,23 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>U.E. Hijos de Luz - Formamos el Futuro de Valencia</title>
+    <title>U.E. Hijos de Luz - Educación Integral y Valores</title>
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
 
-    <!-- PRELOADER -->
     <div id="preloader">
         <div class="spinner"></div>
     </div>
 
-    <!-- MAIN HEADER / NAVIGATION -->
-    <header class="main-header">
+    <header class="main-header" data-nav-visible="false">
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="images/logo.png" alt="Logo de U.E. Hijos de Luz">
             </a>
-            <nav class="main-nav">
+            <nav class="main-nav" id="primary-navigation">
                 <ul>
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
@@ -34,146 +32,75 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <div class="hero">
-        <h1>Más que educación, formamos el futuro de Valencia.</h1>
-        <p>Excelencia académica y valores que iluminan el camino de sus hijos desde el año 1997.</p>
-        <div class="buttons">
-            <a href="#admisiones" class="btn btn-primary">Conoce Nuestra Propuesta</a>
-            <a href="#admisiones" class="btn btn-secondary">Admisiones</a>
-        </div>
-    </div>
-
     <main>
-        <!-- PILARES / PROPUESTA DE VALOR -->
-        <section class="section" style="background-color: var(--color-background-soft);">
+        <section class="hero-section">
+            <div class="hero-bg">
+                <img src="images/hero-bg.jpg" alt="Fachada de la escuela Hijos de Luz">
+            </div>
             <div class="container">
-                <div class="pillars-grid ">
-                    <div class="pillar-item fade-in-element">
-                        <div class="icon">
-                            <!-- Icono: Escudo (Integridad) -->
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.623 0-1.602-.39-3.123-1.098-4.51M9 12.75L11.25 15 15 9.75" />
-                            </svg>
-                        </div>
-                        <h3>Integridad y Valores</h3>
-                        <p>Fomentamos principios morales sólidos que guían a nuestros alumnos dentro y fuera del aula.</p>
-                    </div>
-                    <div class="pillar-item fade-in-element">
-                        <div class="icon">
-                            <!-- Icono: Birrete (Academia) -->
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path d="M12 14.25a.75.75 0 01.75.75v5.25a.75.75 0 01-1.5 0v-5.25a.75.75 0 01.75-.75z" />
-                                <path fill-rule="evenodd" d="M3.75 6.75A.75.75 0 014.5 6h15a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-15a.75.75 0 01-.75-.75v-.75zm0 6A.75.75 0 014.5 12h15a.75.75 0 01.75.75v.75a.75.75 0 01-.75.75h-15a.75.75 0 01-.75-.75v-.75z" clip-rule="evenodd" />
-                                <path d="M12 3.75a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V4.5a.75.75 0 01.75-.75zM5.25 4.5a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75h-.01a.75.75 0 01-.75-.75v-.01zM18 5.25a.75.75 0 00-.75-.75h-.01a.75.75 0 00-.75.75v.01a.75.75 0 00.75.75h.01a.75.75 0 00.75-.75v-.01z" />
-                            </svg>
-                        </div>
-                        <h3>Excelencia Académica</h3>
-                        <p>Un equipo docente comprometido y en constante actualización para ofrecer la mejor enseñanza.</p>
-                    </div>
-                    <div class="pillar-item fade-in-element">
-                        <div class="icon">
-                            <!-- Icono: Grupo (Comunidad) -->
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.5-2.962c.57-.063 1.14-.094 1.741-.094s1.17.031 1.741.094m-1.741 4.82c.57.063 1.14.094 1.741.094s1.17-.031 1.741-.094M3 13.5a9 9 0 0118 0v-2.25a9 9 0 00-18 0v2.25z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 12.75c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z" />
-                            </svg>
-                        </div>
-                        <h3>Comunidad Unida</h3>
-                        <p>Padres, maestros y alumnos trabajando juntos en un entorno seguro y familiar.</p>
-                    </div>
-                    <div class="pillar-item fade-in-element">
-                        <div class="icon">
-                            <!-- Icono: Planta (Crecimiento) -->
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-                            </svg>
-                        </div>
-                        <h3>Continuidad Educativa</h3>
-                        <p>Acompañamos a tu hijo en cada etapa de su crecimiento, desde Preescolar hasta Media General.</p>
+                <div class="hero-content">
+                    <h1>Educación con <strong>Valores</strong> y <strong>Excelencia</strong></h1>
+                    <p>Formando líderes íntegros en Valencia desde 1997. Ofrecemos un camino de crecimiento integral para Preescolar, Primaria y Media General.</p>
+                    <div class="hero-actions">
+                        <a href="admisiones.html" class="btn btn-primary">Ver Admisiones</a>
+                        <a href="#" id="video-trigger" class="btn btn-secondary video-btn" data-video-id="5TpT0xl1WW0">
+                            ▶ Ver Video
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- NOTICIAS Y EVENTOS -->
-        <section class="section">
+        <section class="section features-section">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-item fade-in-element">
+                        <div class="feature-icon">💡</div>
+                        <h3>Modelo Humanista</h3>
+                        <p>Fomentamos el pensamiento crítico y el desarrollo emocional de cada estudiante.</p>
+                    </div>
+                    <div class="feature-item fade-in-element">
+                        <div class="feature-icon">📚</div>
+                        <h3>Alto Nivel Académico</h3>
+                        <p>Preparamos a los jóvenes para los retos universitarios con rigor y excelencia.</p>
+                    </div>
+                    <div class="feature-item fade-in-element">
+                        <div class="feature-icon">🤝</div>
+                        <h3>Comunidad Familiar</h3>
+                        <p>Una institución que valora la cercanía, la colaboración y el apoyo mutuo entre familias.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section testimonials-section" style="background-color: var(--color-background-soft);">
             <div class="container">
                 <div class="section-title fade-in-element">
-                    <span>Comunidad Activa</span>
-                    <h2>Noticias y Próximos Eventos</h2>
+                    <span>Lo que Dicen de Nosotros</span>
+                    <h2>Nuestra Comunidad</h2>
                 </div>
-                <div class="events-grid">
-                    <!-- Video Trigger -->
-                    <div class="event-card-link" id="video-trigger" data-video-id="5TpT0xl1WW0" style="cursor: pointer;">
-                        <div class="event-card fade-in-element">
-                            <img
-                                src="https://placehold.co/800x533/0A2540/FF6B00?text=Graduacion-M"
-                                srcset="https://placehold.co/400x267/0A2540/FF6B00?text=Graduacion-S 400w,
-                                        https://placehold.co/800x533/0A2540/FF6B00?text=Graduacion-M 800w,
-                                        https://placehold.co/1200x800/0A2540/FF6B00?text=Graduacion-L 1200w"
-                                sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
-                                alt="Acto de graduación de la promoción 2025"
-                                loading="lazy"
-                                decoding="async"
-                            />
-                            <div class="event-card-content">
-                                <span class="tag">VER VIDEO ▶</span>
-                                <h3>Acto de Graduación Promoción 2025</h3>
-                                <p>Lugar: Anfiteatro de Bárbula, Universidad de Carabobo. ¡Celebremos juntos el éxito de nuestros egresados!</p>
-                            </div>
-                        </div>
+                <div class="testimonials-slider">
+                    <blockquote class="testimonial-card fade-in-element">
+                        <p>"Mis dos hijos han crecido aquí y no podría estar más contenta. La calidad humana y académica es inigualable."</p>
+                        <footer>— Sra. Ana L. (Madre de 5to Grado)</footer>
+                    </blockquote>
+                    <blockquote class="testimonial-card fade-in-element">
+                        <p>"Salí de la U.E. Hijos de Luz preparado no solo para la universidad, sino para la vida. Llevo sus valores conmigo."</p>
+                        <footer>— Daniel V. (Ex-alumno, Promoción 2018)</footer>
+                    </blockquote>
                     </div>
-
-                    <div class="event-card fade-in-element">
-                        <img src="https://placehold.co/600x400/FF6B00/FFFFFF?text=Promoción+2026" alt="Develación de logo">
-                        <div class="event-card-content">
-                            <span class="tag">NOTICIA</span>
-                            <h3>Develación del Logo y Padrinos Promoción 2026</h3>
-                            <p>Fecha: 11 de Diciembre 2025. Un momento emocionante para la futura generación de bachilleres.</p>
-                        </div>
-                    </div>
-                    <div class="event-card fade-in-element">
-                        <img src="https://placehold.co/600x400/50E3C2/0A2540?text=Brigada" alt="Brigada Bolivariana">
-                        <div class="event-card-content">
-                            <span class="tag">INSTITUCIONAL</span>
-                            <h3>Creación de la Brigada Bolivariana</h3>
-                            <p>Nuestros estudiantes asumen un nuevo compromiso cívico con la formación de la brigada institucional.</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
-        <!-- TESTIMONIOS -->
-        <section class="section" style="background-color: var(--color-background-soft);">
-            <div class="container">
-                 <div class="section-title fade-in-element">
-                    <span>Nuestra Familia</span>
-                    <h2>Lo que dicen de nosotros</h2>
-                </div>
-                <div class="testimonial fade-in-element">
-                    <blockquote>"Encontrar Hijos de Luz fue una bendición. No solo veo el avance académico de mi hija, sino cómo ha crecido como persona, con más seguridad y valores. La comunicación con los maestros es excelente."</blockquote>
-                    <div class="author">
-                        <img src="https://placehold.co/100x100/FFFFFF/333333?text=Mamá" alt="Foto de madre de familia">
-                        <cite>Ana María Pérez - Madre de 5to Grado</cite>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA FINAL -->
-        <section class="section cta-final">
-            <div class="container">
-                <h2 class="fade-in-element">¿Listo para ser parte de la familia Hijos de Luz?</h2>
-                <p class="fade-in-element">Descubre todo lo que nuestra institución tiene para ofrecer a tu hijo.</p>
-                <br>
-                <a href="#contacto" class="btn btn-secondary fade-in-element">Agendar una Visita</a>
+        <section class="cta-section">
+            <div class="container fade-in-element">
+                <h2>¿Listo para Unirte a la Familia?</h2>
+                <p>Las inscripciones para el nuevo año escolar están abiertas. ¡No pierdas tu cupo!</p>
+                <a href="admisiones.html" class="btn btn-secondary">Iniciar Proceso de Admisión</a>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -207,7 +134,6 @@
         </div>
     </footer>
 
-    <!-- COOKIE CONSENT BANNER -->
     <div id="cookie-consent-banner">
         <p>Este sitio web utiliza cookies para garantizar que obtengas la mejor experiencia. <a href="/politica-de-privacidad.html">Más información</a></p>
         <div class="cookie-buttons">
@@ -216,21 +142,18 @@
         </div>
     </div>
 
-    <!-- WHATSAPP FLOATING BUTTON -->
     <a href="https://wa.me/584162473349?text=Hola,%20estoy%20interesado%20en%20la%20U.E.%20Hijos%20de%20Luz." id="whatsapp-fab" target="_blank" aria-label="Contactar por WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor">
             <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l118-31.1c32.4 17.7 68.9 27 105.9 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.8 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
         </svg>
     </a>
 
-    <!-- SCROLL TO TOP BUTTON -->
     <a href="#" id="scroll-to-top-btn" aria-label="Volver arriba">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
         </svg>
     </a>
 
-    <!-- VIDEO MODAL -->
     <div id="video-modal" class="video-modal">
         <div class="video-modal-content">
             <span class="video-modal-close">&times;</span>
