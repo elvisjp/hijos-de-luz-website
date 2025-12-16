@@ -118,4 +118,39 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+
+  // FADE-IN ANIMATIONS ON SCROLL
+  const fadeInElements = document.querySelectorAll('.fade-in-element');
+
+  if (fadeInElements.length > 0) {
+    const observerOptions = {
+      root: null, // Observa la intersección con el viewport
+      rootMargin: '0px',
+      threshold: 0.1 // Se activa cuando el 10% del elemento es visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        // Si el elemento está intersectando (visible)
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Dejar de observar el elemento una vez que es visible para no repetir la animación
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observar cada uno de los elementos
+    fadeInElements.forEach(el => observer.observe(el));
+
+    // Aplicar retraso escalonado a los elementos agrupados
+    const animatedGroups = document.querySelectorAll('.features-grid, .testimonials-slider, .process-steps, .team-grid, .gallery-grid');
+    animatedGroups.forEach(group => {
+      const elements = group.querySelectorAll('.fade-in-element');
+      elements.forEach((el, index) => {
+        // Aplicar un retraso de 150ms por cada elemento
+        el.style.transitionDelay = `${index * 150}ms`;
+      });
+    });
+  }
 });
