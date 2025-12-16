@@ -90,6 +90,38 @@
             </div>
         </section>
 
+        <section class="section gallery-section">
+            <div class="container">
+                <div class="section-title fade-in-element">
+                    <span>Nuestros Espacios</span>
+                    <h2>Galería de Fotos</h2>
+                </div>
+                <div class="gallery-grid">
+                    <!-- Imágenes con Lazy Loading -->
+                    <picture>
+                        <!-- El navegador intentará cargar la versión WebP primero -->
+                        <source 
+                            type="image/webp"
+                            srcset="images/gallery/patio-400.webp 400w, images/gallery/patio-800.webp 800w"
+                            sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, 33vw">
+                        <!-- Si no puede, usará la versión JPG -->
+                        <source 
+                            type="image/jpeg"
+                            srcset="images/gallery/patio-400.jpg 400w, images/gallery/patio-800.jpg 800w"
+                            sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, 33vw">
+                        <!-- La etiqueta <img> es la de respaldo final y para accesibilidad -->
+                        <img src="images/gallery/patio-800.jpg" alt="Patio de juegos de la escuela" loading="lazy" width="400" height="300">
+                    </picture>
+                    <img src="images/gallery/aula.jpg" alt="Aula de clases moderna" loading="lazy" width="400" height="300">
+                    <img src="images/gallery/laboratorio.jpg" alt="Laboratorio de ciencias" loading="lazy" width="400" height="300">
+                    <img src="images/gallery/biblioteca.jpg" alt="Biblioteca con estudiantes" loading="lazy" width="400" height="300">
+                    <img src="images/gallery/cancha.jpg" alt="Cancha deportiva" loading="lazy" width="400" height="300">
+                    <img src="images/gallery/evento.jpg" alt="Evento cultural en el auditorio" loading="lazy" width="400" height="300">
+                    <!-- El navegador solo cargará estas imágenes cuando el usuario se acerque a ellas -->
+                </div>
+            </div>
+        </section>
+
         <section class="cta-section">
             <div class="container fade-in-element">
                 <h2>¿Listo para Unirte a la Familia?</h2>

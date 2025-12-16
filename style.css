@@ -803,17 +803,25 @@ a:hover {
     bottom: calc(var(--spacing-md) + 60px); /* Arriba del WhatsApp FAB */
     right: var(--spacing-md);
     width: 40px;
-    height: 40px;
+    height: 40px;    
     background-color: var(--color-primary);
     color: var(--color-background);
     border-radius: 50%;
-    display: none; /* Oculto por defecto, JS lo muestra */
     justify-content: center;
     align-items: center;
     box-shadow: var(--shadow-sm);
     z-index: 980;
+    /* Cambios para la transición con JS */
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#scroll-to-top-btn.is-visible {
     opacity: 0.8;
-    transition: opacity 0.2s ease;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 #scroll-to-top-btn:hover {
@@ -952,12 +960,15 @@ a:hover {
         align-items: center;
         z-index: 1001;
         transform: translateX(100%);
-        transition: transform 0.4s ease-in-out;
+        opacity: 0; /* Inicialmente transparente */
+        pointer-events: none; /* Deshabilita interacciones cuando está oculto */
+        transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out; /* Transiciona ambos */
     }
 
     .main-nav[data-visible="true"] {
         transform: translateX(0);
-        display: flex;
+        opacity: 1; /* Completamente visible */
+        pointer-events: auto; /* Habilita interacciones cuando está visible */
     }
 
     .nav-list {
