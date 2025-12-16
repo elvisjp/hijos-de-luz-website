@@ -1,18 +1,8 @@
 version: 2
 updates:
-  # 1. Monitorear las dependencias del código (NPM)
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    # Opcional: Agrupar PRs para una mejor gestión
-    groups:
-      dev-dependencies:
-        patterns:
-          - "*"
-        dependency-type: "development"
-
-  # 2. Monitorear las dependencias de la automatización (GitHub Actions)
+  # Eliminar el bloque 'npm' si no tienes package.json
+  
+  # Dejar SOLO si usas GitHub Actions para CI/CD (despliegue, testing, etc.)
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
