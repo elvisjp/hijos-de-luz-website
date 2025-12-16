@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
     fadeInElements.forEach(el => observer.observe(el));
 
     // Aplicar retraso escalonado a los elementos agrupados
-    const animatedGroups = document.querySelectorAll('.features-grid, .testimonials-slider, .process-steps, .team-grid, .gallery-grid');
+    const animatedGroups = document.querySelectorAll('.features-grid, .testimonials-slider, .process-steps, .team-grid, .gallery-grid, .academic-grid, .model-grid');
     animatedGroups.forEach(group => {
       const elements = group.querySelectorAll('.fade-in-element');
       elements.forEach((el, index) => {
