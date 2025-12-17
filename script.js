@@ -288,4 +288,45 @@ document.addEventListener('DOMContentLoaded', function () {
     // Iniciar la animación
     type();
   }
+
+  // LIKE BUTTONS FOR GALLERY
+  const likeButtons = document.querySelectorAll('.like-btn');
+
+  // Clave para guardar los "me gusta" en localStorage
+  const LIKES_KEY = 'hijosdeluz_gallery_likes';
+
+  // Cargar los "me gusta" guardados
+  let likesData = JSON.parse(localStorage.getItem(LIKES_KEY)) || {};
+
+  function updateLikeButton(btn, itemId) {
+    const itemContainer = btn.closest('.gallery-item');
+    const countElement = itemContainer.querySelector('.like-count');
+    const heartIcon = btn.querySelector('i');
+
+    if (likesData[itemId]) {
+      btn.classList.add('liked');
+      heartIcon.classList.remove('fa-regular');
+      heartIcon.classList.add('fa-solid');
+      countElement.textContent = '1';
+    } else {
+      btn.classList.remove('liked');
+      heartIcon.classList.remove('fa-solid');
+      heartIcon.classList.add('fa-regular');
+      countElement.textContent = '0';
+    }
+  }
+
+  likeButtons.forEach(btn => {
+    const itemContainer = btn.closest('.gallery-item');
+    const itemId = itemContainer.dataset.id;
+
+    // Inicializar el estado del botón al cargar la página
+    updateLikeButton(btn, itemId);
+
+    btn.addEventListener('click', () => {
+      likesData[itemId] = !likesData[itemId]; // Alternar el estado
+      localStorage.setItem(LIKES_KEY, JSON.stringify(likesData));
+      updateLikeButton(btn, itemId);
+    });
+  });
 });

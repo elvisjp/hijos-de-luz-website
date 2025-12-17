@@ -32,15 +32,15 @@
     </header>
 
     <main>
-        <section id="inicio" class="hero-section">
-            <div class="hero-bg">
-                <img src="images/logoinstitucional.png" alt="Logo institucional de Hijos de Luz como fondo">
+        <!-- Sección dedicada únicamente al logo institucional grande -->
+        <section id="inicio-logo" class="hero-section">
+            <div class="container">
+                <img src="images/logoinstitucional.png" alt="Logo institucional de Hijos de Luz" style="max-width: 450px; width: 100%; height: auto; margin-top: var(--spacing-md);">
             </div>
-            <!-- El contenido se ha movido a su propia sección para no superponerse al logo -->
         </section>
 
         <!-- Nueva sección para el contenido del hero -->
-        <section class="section" style="padding-top: 0; text-align: center;">
+        <section id="inicio" class="section" style="padding-top: var(--spacing-md); text-align: center;">
             <div class="container">
                 <div class="hero-content" style="padding-top: 0;">
                     <div class="typewriter-container">
@@ -114,15 +114,19 @@
                 <div class="gallery-grid">
                     <!-- Las imágenes se añadirán aquí con su categoría, por ejemplo: -->
                     <!-- Video Item -->
-                    <div class="gallery-item video-item js-video-trigger" data-category="destacados" data-video-id="5TpT0xl1WW0">
+                    <div class="gallery-item video-item js-video-trigger" data-category="destacados" data-video-id="5TpT0xl1WW0" data-id="graduandos-2025">
                         <img src="https://img.youtube.com/vi/5TpT0xl1WW0/hqdefault.jpg" alt="Video de Graduandos 2025" loading="lazy">
                         <div class="video-overlay">
                             <div class="play-icon">▶</div>
                             <p>Graduandos 2025</p>
                         </div>
+                        <div class="gallery-item-actions">
+                            <button class="like-btn" aria-label="Me gusta"><i class="fa-regular fa-heart"></i></button>
+                            <span class="like-count">0</span>
+                        </div>
                     </div>
                     <!-- Items de ejemplo para la galería -->
-                    <div class="gallery-item" data-category="culturales">
+                    <div class="gallery-item" data-category="culturales" data-id="evento-cultural">
                         <picture>
                             <!-- Asume que has creado una versión WebP de tu imagen -->
                             <source srcset="images/gallery/evento-cultural.webp" type="image/webp">
@@ -130,12 +134,24 @@
                             <source srcset="images/gallery/evento-cultural.jpg" type="image/jpeg">
                             <img src="images/gallery/evento-cultural.jpg" alt="Actividad cultural en el patio del colegio" loading="lazy">
                         </picture>
+                        <div class="gallery-item-actions">
+                            <button class="like-btn" aria-label="Me gusta"><i class="fa-regular fa-heart"></i></button>
+                            <span class="like-count">0</span>
+                        </div>
                     </div>
-                    <div class="gallery-item" data-category="noticias">
+                    <div class="gallery-item" data-category="noticias" data-id="noticia-importante">
                         <img src="https://placehold.co/400x300/25d366/FFFFFF?text=Noticia+Importante" alt="Ejemplo de Noticia" loading="lazy">
+                        <div class="gallery-item-actions">
+                            <button class="like-btn" aria-label="Me gusta"><i class="fa-regular fa-heart"></i></button>
+                            <span class="like-count">0</span>
+                        </div>
                     </div>
-                    <div class="gallery-item" data-category="culturales">
+                    <div class="gallery-item" data-category="culturales" data-id="feria-ciencias">
                         <img src="https://placehold.co/400x300/003366/FFFFFF?text=Feria+de+Ciencias" alt="Ejemplo de Feria de Ciencias" loading="lazy">
+                        <div class="gallery-item-actions">
+                            <button class="like-btn" aria-label="Me gusta"><i class="fa-regular fa-heart"></i></button>
+                            <span class="like-count">0</span>
+                        </div>
                     </div>
                 </div>
             </div>
