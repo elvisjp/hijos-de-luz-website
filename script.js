@@ -192,29 +192,29 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // GALLERY FILTER
-  const filterContainer = document.querySelector('.gallery-filters');
-  const galleryItems = document.querySelectorAll('.gallery-item');
+  // Filtrado de Galería
+const filterButtons = document.querySelectorAll('.filter-btn');
+const galleryItems = document.querySelectorAll('.gallery-item');
 
-  if (filterContainer && galleryItems.length > 0) {
-    filterContainer.addEventListener('click', (e) => {
-      if (e.target.classList.contains('filter-btn')) {
-        // Manejar el botón activo
-        filterContainer.querySelector('.active').classList.remove('active');
-        e.target.classList.add('active');
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Quitar clase active de todos y ponerla en el clicado
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
 
-        const filterValue = e.target.getAttribute('data-filter');
+        const filterValue = button.getAttribute('data-filter');
 
         galleryItems.forEach(item => {
-          if (item.dataset.category === filterValue || filterValue === 'all') {
-            item.classList.remove('hide');
-          } else {
-            item.classList.add('hide');
-          }
+            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                item.style.display = 'block';
+                setTimeout(() => item.style.opacity = '1', 10);
+            } else {
+                item.style.opacity = '0';
+                setTimeout(() => item.style.display = 'none', 300);
+            }
         });
-      }
     });
-  }
+});
 
   // SCROLLSPY - ACTIVE LINK ON SCROLL
   const sections = document.querySelectorAll('section[id]');

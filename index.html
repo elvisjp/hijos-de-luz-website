@@ -12,20 +12,21 @@
 </head>
 <body>
 <header class="main-header">
-        <div class="container main-header__container">
-            <a href="index.html" class="main-header__logo">
+        <div class="container">
+            <a href="index.html" class="logo">
                 <img src="images/logo.png" alt="Logo de U.E. Hijos de Luz">
             </a>
-            <button class="main-header__toggle" aria-controls="primary-navigation" aria-expanded="false">
+
+            <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
                 <span class="sr-only">Menú</span>
             </button>
-            <nav class="main-header__nav" id="primary-navigation">
-                <ul class="main-header__nav-list">
-                    <li class="main-header__nav-item"><a href="#inicio" class="main-header__nav-link main-header__nav-link--active">Inicio</a></li>
-                    <li class="main-header__nav-item"><a href="#nosotros" class="main-header__nav-link">Nosotros</a></li>
-                    <li class="main-header__nav-item"><a href="#galeria" class="main-header__nav-link">Galería</a></li>
-                    <li class="main-header__nav-item"><a href="admisiones.html" class="main-header__nav-link">Admisiones</a></li>
-                    <li class="main-header__nav-item"><a href="contacto.html" class="main-header__nav-link">Contacto</a></li>
+            <nav class="main-nav" id="primary-navigation">
+                <ul class="nav-list">
+                    <li><a href="#inicio" class="active">Inicio</a></li>
+                    <li><a href="sobre-nosotros.html">Nosotros</a></li>
+                    <li><a href="oferta-academica.html>Oferta Académica</a></li>
+                    <li><a href="admiciones.html">Admisiones</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
         </div>
@@ -35,7 +36,8 @@
         <!-- Sección dedicada únicamente al logo institucional grande -->
         <section id="inicio-logo" class="hero-section">
             <div class="container">
-                <img src="images/logoinstitucional.png" alt="Logo institucional de Hijos de Luz" style="max-width: 450px; width: 100%; height: auto; margin-top: var(--spacing-md);">
+                <img src="images/logoinstitucional.png" alt="Logo institucional de Hijos de Luz" 
+             style="max-width: 450px; width: 100%; height: auto; margin-top: 40px; margin-bottom: 20px;">
             </div>
         </section>
 
@@ -48,8 +50,9 @@
                     </div>
                     <p class="fade-in-element" style="font-size: 1.25rem;">Formando líderes íntegros en Valencia desde 1997. Ofrecemos un camino de crecimiento integral para Primaria y Media General.</p>
                     <div class="hero-actions fade-in-element">
-                        <a href="admisiones.html" class="btn btn-primary">Ver Admisiones</a>
-                        <a href="#" class="btn btn-secondary video-btn js-video-trigger" data-video-id="5TpT0xl1WW0">▶ Ver Video</a>
+                        <a href="#" class="btn btn-secondary video-btn js-video-trigger" data-video-id="5TpT0xl1WW0">
+                            <i class="fa-solid fa-graduation-cap"></i> Acto de Graduación 2025
+                        </a>
                     </div>
                 </div>
             </div>
