@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.min.css">
 </head>
 <body>
-<header class="main-header scrolled">
+<header class="main-header">
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="images/logo.png" alt="Logo de U.E. Hijos de Luz">
@@ -63,23 +63,23 @@
 
                             <div class="form-group">
                                 <label for="name">Nombre Completo</label>
-                                <input type="text" id="name" name="name" required minlength="3">
-                                <small class="error-message"></small>
+                                <input type="text" id="name" name="name" required minlength="3" aria-describedby="name-error">
+                                <small id="name-error" class="error-message" role="alert"></small>
                             </div>
                             <div class="form-group">
                                 <label for="email">Correo Electrónico</label>
-                                <input type="email" id="email" name="email" required>
-                                <small class="error-message"></small>
+                                <input type="email" id="email" name="email" required aria-describedby="email-error">
+                                <small id="email-error" class="error-message" role="alert"></small>
                             </div>
                             <div class="form-group">
                                 <label for="subject">Asunto</label>
-                                <input type="text" id="subject" name="subject" required>
-                                <small class="error-message"></small>
+                                <input type="text" id="subject" name="subject" required aria-describedby="subject-error">
+                                <small id="subject-error" class="error-message" role="alert"></small>
                             </div>
                             <div class="form-group">
                                 <label for="message">Mensaje</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
-                                <small class="error-message"></small>
+                                <textarea id="message" name="message" rows="5" required aria-describedby="message-error"></textarea>
+                                <small id="message-error" class="error-message" role="alert"></small>
                             </div>
                             <button type="submit" class="btn btn-primary" id="submit-btn">Enviar Mensaje</button>
                         </form>

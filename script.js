@@ -1,5 +1,5 @@
 // script.js - funcionalidades básicas para la página:
-// - preloader hide
+// - header con scroll
 // - mobile nav toggle
 // - video modal open/close (inserta embed de YouTube)
 // - cookie consent (localStorage)
@@ -12,9 +12,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (navToggle && primaryNav) {
         navToggle.addEventListener('click', () => {
-            const isVisible = primaryNav.getAttribute('data-visible') === 'true';
-            navToggle.setAttribute('aria-expanded', !isVisible);
-            primaryNav.setAttribute('data-visible', !isVisible);
+            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !isExpanded);
+            primaryNav.setAttribute('data-visible', !isExpanded);
+
+            // Mover el foco al primer enlace cuando se abre el menú
+            if (!isExpanded) {
+                primaryNav.querySelector('a').focus();
+            }
         });
     }
 
@@ -48,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const iframe = pipPlayer.querySelector('#pip-youtube-video');
             iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&origin=${window.location.origin}`;
             pipPlayer.classList.add('show');
+            pipPlayer.querySelector('.pip-player-close').focus(); // Mover foco al botón de cerrar
         };
 
         const closePlayer = () => {
@@ -55,12 +61,15 @@ document.addEventListener('DOMContentLoaded', function () {
             const iframe = pipPlayer.querySelector('#pip-youtube-video');
             iframe.src = '';
             pipPlayer.classList.remove('show');
+            // Devolver el foco al elemento que abrió el video
+            document.querySelector('.js-video-trigger.last-focused')?.focus();
         };
 
         videoTriggers.forEach(trigger => {
             trigger.addEventListener('click', (e) => {
                 e.preventDefault();
                 const videoId = trigger.dataset.videoId;
+                trigger.classList.add('last-focused'); // Marcar el trigger
                 if (videoId) openPlayer(videoId);
             });
         });
@@ -97,20 +106,38 @@ document.addEventListener('DOMContentLoaded', function () {
   // SCROLL TO TOP
   const scrollBtn = document.getElementById('scroll-to-top-btn');
   if (scrollBtn) {
-    scrollBtn.style.display = 'none';
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) scrollBtn.style.display = 'block';
-      else scrollBtn.style.display = 'none';
-    });
     scrollBtn.addEventListener('click', (e) => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
-  // Accessibility: close modal with ESC
-  document.addEventListener('keydown', (e) => {
-    // La lógica del modal de video se ha eliminado
+  // OPTIMIZED SCROLL EVENTS
+  const header = document.querySelector('.main-header');
+  let ticking = false;
+
+  function handleScroll() {
+    const scrollY = window.scrollY;
+
+    // 1. Header scroll effect
+    if (header) {
+      header.classList.toggle('scrolled', scrollY > 50);
+    }
+
+    // 2. Scroll-to-top button visibility
+    if (scrollBtn) {
+      scrollBtn.classList.toggle('is-visible', scrollY > 300);
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        handleScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
   });
 
   // Optional: smooth scroll for internal anchors (if hay enlaces a #id)
@@ -187,5 +214,78 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
     });
+  }
+
+  // SCROLLSPY - ACTIVE LINK ON SCROLL
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.main-header__nav-link');
+
+  if (sections.length > 0 && navLinks.length > 0) {
+    const scrollSpyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Obtener el ID de la sección visible
+          const id = entry.target.getAttribute('id');
+          const activeLink = document.querySelector(`.main-header__nav-link[href="#${id}"]`);
+
+          // Quitar la clase activa de todos los enlaces
+          navLinks.forEach(link => link.classList.remove('main-header__nav-link--active'));
+
+          // Añadir la clase activa al enlace correspondiente
+          if (activeLink) {
+            activeLink.classList.add('main-header__nav-link--active');
+          }
+        }
+      });
+    }, {
+      rootMargin: '-50% 0px -50% 0px' // Activa cuando la sección está en el centro de la pantalla
+    });
+
+    sections.forEach(section => scrollSpyObserver.observe(section));
+  }
+
+  // Asegurar que el enlace activo se establezca en la carga de la página
+  // (para cuando se carga con un hash en la URL)
+  const currentHash = window.location.hash;
+  if (currentHash) {
+      const activeLinkOnLoad = document.querySelector(`.main-header__nav-link[href="${currentHash}"]`);
+      if (activeLinkOnLoad) {
+          navLinks.forEach(link => link.classList.remove('main-header__nav-link--active'));
+          activeLinkOnLoad.classList.add('main-header__nav-link--active');
+      }
+  }
+
+  // TYPEWRITER EFFECT FOR MAIN TITLE
+  const titleElement = document.getElementById('typewriter-title');
+  if (titleElement) {
+    const originalHTML = 'Educación con <strong>Valores</strong> y <strong>Excelencia</strong>';
+    const textToType = [];
+    // Convertir el HTML en un array de caracteres y etiquetas
+    for (let i = 0; i < originalHTML.length; i++) {
+        if (originalHTML[i] === '<') {
+            const closingTagIndex = originalHTML.indexOf('>', i);
+            textToType.push(originalHTML.substring(i, closingTagIndex + 1));
+            i = closingTagIndex;
+        } else {
+            textToType.push(originalHTML[i]);
+        }
+    }
+
+    let charIndex = 0;
+    titleElement.classList.add('typewriter-text');
+
+    function type() {
+      if (charIndex < textToType.length) {
+        titleElement.innerHTML += textToType[charIndex];
+        charIndex++;
+        setTimeout(type, 70); // Velocidad de escritura (en ms)
+      } else {
+        // Cuando termina, el cursor deja de parpadear
+        titleElement.classList.remove('typewriter-text');
+      }
+    }
+
+    // Iniciar la animación
+    type();
   }
 });

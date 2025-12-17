@@ -12,45 +12,50 @@
 </head>
 <body>
 <header class="main-header">
-        <div class="container">
-            <a href="index.html" class="logo">
+        <div class="container main-header__container">
+            <a href="index.html" class="main-header__logo">
                 <img src="images/logo.png" alt="Logo de U.E. Hijos de Luz">
             </a>
-            <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+            <button class="main-header__toggle" aria-controls="primary-navigation" aria-expanded="false">
                 <span class="sr-only">Menú</span>
             </button>
-            <nav class="main-nav" id="primary-navigation">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="active">Inicio</a></li>
-                    <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
-                    <li><a href="oferta-academica.html">Oferta Académica</a></li>
-                    <li><a href="admisiones.html">Admisiones</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
+            <nav class="main-header__nav" id="primary-navigation">
+                <ul class="main-header__nav-list">
+                    <li class="main-header__nav-item"><a href="#inicio" class="main-header__nav-link main-header__nav-link--active">Inicio</a></li>
+                    <li class="main-header__nav-item"><a href="#nosotros" class="main-header__nav-link">Nosotros</a></li>
+                    <li class="main-header__nav-item"><a href="#galeria" class="main-header__nav-link">Galería</a></li>
+                    <li class="main-header__nav-item"><a href="admisiones.html" class="main-header__nav-link">Admisiones</a></li>
+                    <li class="main-header__nav-item"><a href="contacto.html" class="main-header__nav-link">Contacto</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="hero-section">
+        <section id="inicio" class="hero-section">
             <div class="hero-bg">
                 <img src="images/logoinstitucional.png" alt="Logo institucional de Hijos de Luz como fondo">
             </div>
+            <!-- El contenido se ha movido a su propia sección para no superponerse al logo -->
+        </section>
+
+        <!-- Nueva sección para el contenido del hero -->
+        <section class="section" style="padding-top: 0; text-align: center;">
             <div class="container">
-                <div class="hero-content">
-                    <h1>Educación con <strong>Valores</strong> y <strong>Excelencia</strong></h1>
-                    <p>Formando líderes íntegros en Valencia desde 1997. Ofrecemos un camino de crecimiento integral para Primaria y Media General.</p>
-                    <div class="hero-actions">
+                <div class="hero-content" style="padding-top: 0;">
+                    <div class="typewriter-container">
+                        <h1 id="typewriter-title" class="fade-in-element"></h1>
+                    </div>
+                    <p class="fade-in-element" style="font-size: 1.25rem;">Formando líderes íntegros en Valencia desde 1997. Ofrecemos un camino de crecimiento integral para Primaria y Media General.</p>
+                    <div class="hero-actions fade-in-element">
                         <a href="admisiones.html" class="btn btn-primary">Ver Admisiones</a>
-                        <a href="#" class="btn btn-secondary video-btn js-video-trigger" data-video-id="5TpT0xl1WW0">
-                            ▶ Ver Video
-                        </a>
+                        <a href="#" class="btn btn-secondary video-btn js-video-trigger" data-video-id="5TpT0xl1WW0">▶ Ver Video</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section features-section">
+        <section id="nosotros" class="section features-section">
             <div class="container">
                 <div class="features-grid">
                     <div class="feature-item fade-in-element">
@@ -91,7 +96,7 @@
             </div>
         </section>
 
-        <section class="section gallery-section">
+        <section id="galeria" class="section gallery-section">
             <div class="container">
                 <div class="section-title fade-in-element">
                     <span>Nuestra Vida Escolar</span>
@@ -118,7 +123,13 @@
                     </div>
                     <!-- Items de ejemplo para la galería -->
                     <div class="gallery-item" data-category="culturales">
-                        <img src="https://placehold.co/400x300/004d99/FFFFFF?text=Eventos+Culturales" alt="Ejemplo de Evento Cultural" loading="lazy">
+                        <picture>
+                            <!-- Asume que has creado una versión WebP de tu imagen -->
+                            <source srcset="images/gallery/evento-cultural.webp" type="image/webp">
+                            <!-- Fallback a JPG para navegadores antiguos -->
+                            <source srcset="images/gallery/evento-cultural.jpg" type="image/jpeg">
+                            <img src="images/gallery/evento-cultural.jpg" alt="Actividad cultural en el patio del colegio" loading="lazy">
+                        </picture>
                     </div>
                     <div class="gallery-item" data-category="noticias">
                         <img src="https://placehold.co/400x300/25d366/FFFFFF?text=Noticia+Importante" alt="Ejemplo de Noticia" loading="lazy">
