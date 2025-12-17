@@ -1366,3 +1366,28 @@ a:hover {
     color: white;
     box-shadow: var(--shadow-md);
 }
+/* FUERZA LA HORIZONTALIDAD DEL CARRUSEL */
+.gallery-slider {
+    display: flex !important; /* Esto obliga a las fotos a ponerse una al lado de la otra */
+    flex-direction: row !important;
+    transition: transform 0.6s ease-in-out;
+    width: 100%;
+}
+
+.slide {
+    min-width: 100% !important; /* Cada foto ocupa el 100% del ancho del carrusel */
+    flex-shrink: 0; /* Evita que las fotos se compriman */
+    height: 500px; 
+}
+
+.gallery-slider-container {
+    overflow: hidden !important; /* Esconde las fotos que no están activas */
+    position: relative;
+    width: 100%;
+}
+
+/* Evita que el grid de la galería interfiera con el slider */
+.slider-wrapper {
+    display: block !important; 
+    padding: 0 !important;
+}
