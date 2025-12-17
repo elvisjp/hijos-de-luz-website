@@ -360,6 +360,10 @@ a:hover {
 .page-header .hero-bg img {
     object-fit: contain; /* Asegura que toda la imagen sea visible */
 }
+/* Ajuste para la nueva imagen de oferta académica */
+.page-header .hero-bg img[src*="barner.png"] {
+    object-fit: cover; /* Esta imagen sí debe cubrir el espacio */
+}
 /* Eliminamos el overlay oscuro que opacaba el logo */
 /* .hero-bg::after { ... } */
  
