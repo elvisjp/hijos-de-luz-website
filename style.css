@@ -30,6 +30,7 @@
     /* Sombras */
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); /* Sombra para texto */
 }
 
 /*
@@ -54,6 +55,7 @@ body {
     color: var(--color-text-dark);
     background-color: var(--color-background);
     overflow-x: hidden; /* Previene scroll horizontal */
+    text-shadow: var(--text-shadow);
 }
 
 /* Contenedor central */
@@ -74,6 +76,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-primary-dark);
     margin-bottom: var(--spacing-sm);
     line-height: 1.2;
+    text-shadow: var(--text-shadow);
 }
 
 h1 { font-size: 3rem; }
@@ -330,7 +333,7 @@ a:hover {
 .hero-content h1 {
     color: var(--color-background);
     margin-bottom: var(--spacing-sm);
-    text-shadow: var(--shadow-md);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content p {
