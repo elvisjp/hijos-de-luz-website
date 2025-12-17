@@ -106,68 +106,59 @@
                     <h2>Galería de Actividades</h2>
                 </div>
 
-                <!-- Botones de Filtro -->
-                <div class="gallery-filters fade-in-element">
-                    <button class="filter-btn active" data-filter="all">Todos</button>
-                    <button class="filter-btn" data-filter="destacados">Eventos Destacados</button>
-                    <button class="filter-btn" data-filter="culturales">Eventos Culturales</button>
-                    <button class="filter-btn" data-filter="noticias">Más Noticias</button>
+        <section id="galeria" class="py-5" style="background-color: #f8f9fa;">
+            <div class="container">
+                <div class="section-header text-center mb-5">
+                    <h2 class="display-4 fw-bold" style="color: var(--color-primary);">Nuestra Vida Escolar</h2>
+                    <div class="underline mx-auto"></div>
                 </div>
 
-                <div class="gallery-grid">
-                    <div class="gallery-item video-item js-video-trigger" data-category="destacados" data-video-id="5TpT0xl1WW0" data-id="graduandos-2025">
-                        <img src="https://img.youtube.com/vi/5TpT0xl1WW0/hqdefault.jpg" alt="Video de Graduandos 2025" loading="lazy">
-                        <div class="video-overlay">
-                            <div class="play-icon">▶</div>
-                            <p>Acto de Graduación 2025</p>
+                <div class="gallery-filters d-flex justify-content-center gap-2 mb-4 flex-wrap">
+                    <button class="filter-btn active" data-reel="destacados">Eventos Destacados</button>
+                    <button class="filter-btn" data-reel="culturales">Eventos Culturales</button>
+                    <button class="filter-btn" data-reel="noticias">Más Noticias</button>
+                </div>
+
+                <div class="reels-container">
+                    <div id="reel-destacados" class="gallery-reel active">
+                        <div class="d-flex justify-content-center">
+                            <div class="gallery-item video-item js-video-trigger" data-video-id="5TpT0xl1WW0" style="max-width: 600px; width: 100%;">
+                                <img src="https://img.youtube.com/vi/5TpT0xl1WW0/hqdefault.jpg" alt="Video Graduación" class="img-fluid rounded-4">
+                                <div class="video-overlay">
+                                    <div class="play-icon">▶</div>
+                                    <p>Acto de Graduación 2025</p>
+                                </div>
+                            </div>
                         </div>
-                 <div class="gallery-item-actions">
-                     <button class="like-btn" aria-label="Me gusta"><i class="fa-regular fa-heart"></i></button>
-                     <span class="like-count">0</span>
-                </div>
-                
-                <div class="gallery-grid">
-    <div class="gallery-item video-item js-video-trigger" data-category="destacados" data-video-id="5TpT0xl1WW0" data-id="graduandos-2025">
-        <img src="https://img.youtube.com/vi/5TpT0xl1WW0/hqdefault.jpg" alt="Video de Graduandos 2025" loading="lazy">
-        <div class="video-overlay">
-            <div class="play-icon">▶</div>
-            <p>Acto de Graduación 2025</p>
-        </div>
-        <div class="gallery-item-actions">
-            <button class="like-btn" aria-label="Me gusta"><i class="fa-regular fa-heart"></i></button>
-            <span class="like-count">0</span>
-        </div>
-    </div>
+                    </div>
 
-    <div class="gallery-item slider-wrapper" data-category="culturales" style="grid-column: 1 / -1;">
-        <div class="gallery-slider-container">
-            <div class="gallery-slider">
-                <div class="slide"><img src="images/gallery/19-800w.jpg" alt="Actividad 19"></div>
-                <div class="slide"><img src="images/gallery/3-800w.jpg" alt="Actividad 3"></div>
-                <div class="slide"><img src="images/gallery/cultural1-800w.jpg" alt="Cultural 1"></div>
-                <div class="slide"><img src="images/gallery/cultural2-800w.jpg" alt="Cultural 2"></div>
-                <div class="slide"><img src="images/gallery/cultural3-800w.jpg" alt="Cultural 3"></div>
-                <div class="slide"><img src="images/gallery/cultural4-800w.jpg" alt="Cultural 4"></div>
-                <div class="slide"><img src="images/gallery/cultural5-800w.jpg" alt="Cultural 5"></div>
-                <div class="slide"><img src="images/gallery/cultural6-800w.jpg" alt="Cultural 6"></div>
-            </div>
-            
-            <button class="slider-btn prev" aria-label="Anterior">❮</button>
-            <button class="slider-btn next" aria-label="Siguiente">❯</button>
-            
-            <div class="slider-dots"></div>
-        </div>
-    </div>
-</div>
+                    <div id="reel-culturales" class="gallery-reel">
+                        <div class="reel-track">
+                            <div class="gallery-item"><img src="images/gallery/19-800w.jpg" alt="Evento 19"></div>
+                            <div class="gallery-item"><img src="images/gallery/3-800w.jpg" alt="Evento 3"></div>
+                            <div class="gallery-item"><img src="images/gallery/cultural1-800w.jpg" alt="Cultural 1"></div>
+                            <div class="gallery-item"><img src="images/gallery/cultural2-800w.jpg" alt="Cultural 2"></div>
+                            <div class="gallery-item"><img src="images/gallery/cultural3-800w.jpg" alt="Cultural 3"></div>
+                            <div class="gallery-item"><img src="images/gallery/cultural4-800w.jpg" alt="Cultural 4"></div>
+                            <div class="gallery-item"><img src="images/gallery/cultural5-800w.jpg" alt="Cultural 5"></div>
+                            <div class="gallery-item"><img src="images/gallery/cultural6-800w.jpg" alt="Cultural 6"></div>
+                            <div class="gallery-item"><img src="images/gallery/eventosculturales-800w.jpg" alt="Eventos"></div>
+                        </div>
+                        <p class="text-center text-muted mt-2 small"><i class="fa-solid fa-arrows-left-right"></i> Desliza para ver más</p>
+                    </div>
 
-        <section class="cta-section">
+                    <div id="reel-noticias" class="gallery-reel">
+                        <div class="reel-track">
+                            <div class="gallery-item"><img src="https://placehold.co/600x400/003366/FFFFFF?text=Próximamente+Noticias" alt="Noticias"></div>
+                        </div>
+                    </div>
+                </div> </div> </section> <section class="cta-section">
             <div class="container fade-in-element">
                 <h2>¿Listo para Unirte a la Familia?</h2>
                 <p>Las inscripciones para el nuevo año escolar están abiertas. ¡No pierdas tu cupo!</p>
                 <a href="admisiones.html" class="btn btn-secondary">Iniciar Proceso de Admisión</a>
             </div>
-        </section>
-    </main>
+        </section>       
 
     <footer class="footer">
         <div class="container">

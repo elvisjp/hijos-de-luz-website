@@ -330,3 +330,23 @@ filterButtons.forEach(button => {
     });
   });
 });
+// Lógica de Carretes (Reels)
+const galleryBtns = document.querySelectorAll('.gallery-filters .filter-btn');
+const galleryReels = document.querySelectorAll('.gallery-reel');
+
+galleryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Quitar clase active de botones
+        galleryBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Mostrar la cinta correspondiente
+        const target = btn.getAttribute('data-reel');
+        galleryReels.forEach(reel => {
+            reel.classList.remove('active');
+            if (reel.id === `reel-${target}`) {
+                reel.classList.add('active');
+            }
+        });
+    });
+});
