@@ -58,9 +58,12 @@ body {
     text-shadow: var(--text-shadow);
 }
 
-/* Empujar el contenido principal hacia abajo para dejar espacio al header fijo */
+/* Forzar que el contenido no se meta debajo en el Index */
 main {
-    padding-top: 82px; /* Restauramos el espacio para el header fijo */
+    padding-top: 95px; /* Aumentamos a 95px para dar más aire en el Index */
+    display: block;
+    position: relative;
+    z-index: 1;
 }
 
 
@@ -228,13 +231,14 @@ a:hover {
  * ==============================
  */
 .main-header {
-    position: fixed; /* Volvemos a fijar el menú */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 3000; /* Z-index alto para que esté por encima de todo */
     padding: var(--spacing-sm) 0;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Restauramos la transición */
+    background-color: transparent; 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .main-header .container {
