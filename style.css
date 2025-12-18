@@ -1412,3 +1412,49 @@ a:hover {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+/* Fondos para romper el blanco */
+section:nth-of-type(even) {
+    background-color: #f9f9f9; /* Un gris casi imperceptible que da elegancia */
+}
+
+footer {
+    background-color: #003366; /* Azul profundo institucional */
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+/* Color dorado para títulos y acentos */
+h1, h2, .resaltado {
+    color: #d4af37; /* Dorado metálico */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Efecto de resplandor en el menú */
+nav a:hover {
+    color: #ffd700; 
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+    transition: 0.3s;
+}
+/* Tarjetas con sombra azulada */
+.tarjeta, .card, .info-box {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 51, 102, 0.15); /* Sombra con un toque de azul */
+    transition: transform 0.3s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px); /* Se eleva un poco al pasar el mouse */
+}
+/* Capa sobre la imagen principal */
+.hero-section {
+    position: relative;
+    background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.5)), url('images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+}
