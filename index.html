@@ -5,12 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>U.E. Hijos de Luz - Educación Integral y Valores</title>
     <link rel="icon" href="images/logotipodecorativo.png" type="image/png">
-
-    <!-- Google Fonts: Poppins (Títulos) y Open Sans (Cuerpo) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- En producción, este archivo estará en dist/style.min.css -->
@@ -42,19 +36,18 @@
         <!-- Sección dedicada únicamente al logo institucional grande -->
         <section id="inicio-logo" class="hero-section">
             <div class="container">
-                <img src="images/logoinstitucional.png" alt="Logo institucional de Hijos de Luz" 
-             style="max-width: 450px; width: 100%; height: auto; margin-top: 40px; margin-bottom: 20px;">
+                <img class="hero-institutional-logo" src="images/logoinstitucional.png" alt="Logo institucional de Hijos de Luz">
             </div>
         </section>
 
         <!-- Nueva sección para el contenido del hero -->
-        <section id="inicio" class="section" style="padding-top: var(--spacing-md); text-align: center;">
+        <section id="inicio" class="section hero-intro-section">
             <div class="container">
-                <div class="hero-content" style="padding-top: 0;">
+                <div class="hero-content hero-intro-content">
                     <div class="typewriter-container">
                         <h1 id="typewriter-title" class="fade-in-element"></h1>
                     </div>
-                    <p class="fade-in-element" style="font-size: 1.25rem;">Formando líderes íntegros en Valencia desde 1997. Ofrecemos un camino de crecimiento integral para Primaria y Media General.</p>
+                    <p class="fade-in-element hero-subtitle">Formando líderes íntegros en Valencia desde 1997. Ofrecemos un camino de crecimiento integral para Primaria y Media General.</p>
                     <div class="hero-actions fade-in-element">
                         <a href="#" class="btn btn-secondary video-btn js-video-trigger" data-video-id="5TpT0xl1WW0">
                             <i class="fa-solid fa-graduation-cap"></i> Acto de Graduación 2025
@@ -86,7 +79,7 @@
             </div>
         </section>
 
-        <section class="section testimonials-section" style="background-color: var(--color-background-soft);">
+        <section class="section testimonials-section">
             <div class="container">
                 <div class="section-title fade-in-element">
                     <span>Lo que Dicen de Nosotros</span>
@@ -112,23 +105,21 @@
                     <h2>Galería de Actividades</h2>
                 </div>
 
-        <section id="galeria" class="py-5" style="background-color: #f8f9fa;">
-            <div class="container">
                 <div class="section-header text-center mb-5">
                     <div class="underline mx-auto"></div>
                 </div>
 
                 <div class="gallery-filters d-flex justify-content-center gap-2 mb-4 flex-wrap">
-                    <button class="filter-btn active" data-reel="destacados">Eventos Destacados</button>
-                    <button class="filter-btn" data-reel="culturales">Eventos Culturales</button>
-                    <button class="filter-btn" data-reel="noticias">Más Noticias</button>
+                    <button class="filter-btn active" data-reel="destacados">Destacados</button>
+                    <button class="filter-btn" data-reel="culturales">Culturales</button>
+                    <button class="filter-btn" data-reel="noticias">Noticias</button>
                 </div>
 
                 <div class="reels-container">
                     <div id="reel-destacados" class="gallery-reel active">
                         <div class="d-flex justify-content-center">
-                            <div class="gallery-item video-item js-video-trigger" data-video-id="5TpT0xl1WW0" style="max-width: 600px; width: 100%;">
-                                <img src="https://img.youtube.com/vi/5TpT0xl1WW0/hqdefault.jpg" alt="Video Graduación" class="img-fluid rounded-4">
+                            <div class="gallery-item video-item js-video-trigger gallery-main-video" data-video-id="5TpT0xl1WW0">
+                                <img src="https://img.youtube.com/vi/5TpT0xl1WW0/hqdefault.jpg" alt="Video Acto de Graduación" class="img-fluid rounded-4">
                                 <div class="video-overlay">
                                     <div class="play-icon">▶</div>
                                     <p>Acto de Graduación 2025</p>
@@ -136,18 +127,17 @@
                             </div>
                         </div>
                     </div>
-
                     <div id="reel-culturales" class="gallery-reel">
                         <div class="reel-track">
-                            <div class="gallery-item"><img src="images/gallery/19-800w.jpg" alt="Evento 19"></div>
-                            <div class="gallery-item"><img src="images/gallery/3-800w.jpg" alt="Evento 3"></div>
-                            <div class="gallery-item"><img src="images/gallery/cultural1-800w.jpg" alt="Cultural 1"></div>
-                            <div class="gallery-item"><img src="images/gallery/cultural2-800w.jpg" alt="Cultural 2"></div>
-                            <div class="gallery-item"><img src="images/gallery/cultural3-800w.jpg" alt="Cultural 3"></div>
-                            <div class="gallery-item"><img src="images/gallery/cultural4-800w.jpg" alt="Cultural 4"></div>
-                            <div class="gallery-item"><img src="images/gallery/cultural5-800w.jpg" alt="Cultural 5"></div>
-                            <div class="gallery-item"><img src="images/gallery/cultural6-800w.jpg" alt="Cultural 6"></div>
-                            <div class="gallery-item"><img src="images/gallery/eventosculturales-800w.jpg" alt="Eventos"></div>
+                            <div class="gallery-item"><img src="images/gallery/19-800w.jpg" alt="Evento cultural 1"></div>
+                            <div class="gallery-item"><img src="images/gallery/3-800w.jpg" alt="Evento cultural 2"></div>
+                            <div class="gallery-item"><img src="images/gallery/cultural1-800w.jpg" alt="Evento cultural 3"></div>
+                            <div class="gallery-item"><img src="images/gallery/cultural2-800w.jpg" alt="Evento cultural 4"></div>
+                            <div class="gallery-item"><img src="images/gallery/cultural3-800w.jpg" alt="Evento cultural 5"></div>
+                            <div class="gallery-item"><img src="images/gallery/cultural4-800w.jpg" alt="Evento cultural 6"></div>
+                            <div class="gallery-item"><img src="images/gallery/cultural5-800w.jpg" alt="Evento cultural 7"></div>
+                            <div class="gallery-item"><img src="images/gallery/cultural6-800w.jpg" alt="Evento cultural 8"></div>
+                            <div class="gallery-item"><img src="images/gallery/eventosculturales-800w.jpg" alt="Evento cultural 9"></div>
                         </div>
                         <p class="text-center text-muted mt-2 small"><i class="fa-solid fa-arrows-left-right"></i> Desliza para ver más</p>
                     </div>
@@ -157,7 +147,9 @@
                             <div class="gallery-item"><img src="https://placehold.co/600x400/003366/FFFFFF?text=Próximamente+Noticias" alt="Noticias"></div>
                         </div>
                     </div>
-                </div> </div> </section> <section class="cta-section">
+                </div>
+            </div>
+        </section> <section class="cta-section">
             <div class="container fade-in-element">
                 <h2>¿Listo para Unirte a la Familia?</h2>
                 <p>Las inscripciones para el nuevo año escolar están abiertas. ¡No pierdas tu cupo!</p>
@@ -188,8 +180,8 @@
                 </div>
                 <div class="footer-col">
                     <h4>Síguenos</h4>
-                    <a href="https://facebook.com/..." target="_blank" rel="noopener noreferrer"> ... </a>
-                    <a href="https://www.instagram.com/unidadeducativahijosdeluz/" target="_blank" rel="noopener noreferrer"> ... </a>
+                    <a href="https://facebook.com/..." target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+                    <a href="https://www.instagram.com/unidadeducativahijosdeluz/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> Instagram</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -199,7 +191,7 @@
     </footer>
 
     <div id="cookie-consent-banner">
-        <p>Este sitio web utiliza cookies para garantizar que obtengas la mejor experiencia. <a href="politica-de-privacidad.html">Más información</a></p>
+        <p>Este sitio web utiliza cookies para garantizar que obtengas la mejor experiencia. <a href="/politica-de-privacidad.html">Más información</a></p>
         <div class="cookie-buttons">
             <button id="cookie-accept-btn" class="btn btn-primary">Aceptar</button>
             <button id="cookie-decline-btn" class="btn">Rechazar</button>

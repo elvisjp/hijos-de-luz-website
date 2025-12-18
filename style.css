@@ -329,8 +329,8 @@ a:hover {
  */
 .hero-section {
     position: relative;
-    height: auto; /* Altura automática en lugar de pantalla completa */
-    min-height: auto;
+    height: auto;
+    min-height: 0; /* Compatibilidad con navegadores antiguos */
     display: flex;
     align-items: center;
     text-align: center;
@@ -368,10 +368,31 @@ a:hover {
  
 /* Cambiamos el fondo de la sección hero para que el logo resalte */
 .hero-section#inicio-logo { /* Selector específico para el logo del index */
-    padding: var(--spacing-md) 0;
-    min-height: auto;
-    background-color: var(--color-background-soft);
+    padding: 0; /* El padding lo controla el logo */
+    min-height: 0; /* Compatibilidad con navegadores antiguos */
+    background-color: transparent; /* Eliminamos el fondo para integrar el logo */
     color: var(--color-text-dark);
+}
+
+.hero-institutional-logo {
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.hero-intro-section {
+    padding-top: var(--spacing-md);
+    text-align: center;
+}
+
+.hero-intro-content {
+    padding-top: 0;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
 }
 
 /* Estilo para los encabezados de las páginas internas */
@@ -507,11 +528,20 @@ a:hover {
     color: var(--color-primary);
 }
 
+/* Añadimos un fondo suave a la sección de características para alternar colores */
+.features-section {
+    background-color: var(--color-background-soft);
+}
+
 /*
  * ==============================
  * 8. TESTIMONIALS
  * ==============================
  */
+.testimonials-section {
+    background-color: var(--color-background-soft);
+}
+
 .testimonials-slider {
     display: flex;
     overflow-x: auto; /* Permite deslizar si hay muchos */
@@ -1006,19 +1036,19 @@ a:hover {
  * ==============================
  */
 .cta-section {
-    background-color: var(--color-background); /* Cambiado a fondo blanco */
-    color: var(--color-primary-dark); /* Cambiado a texto azul oscuro */
+    background-color: var(--color-primary-dark); /* Fondo azul oscuro para destacar */
+    color: var(--color-background); /* Texto blanco para contraste */
     text-align: center;
     padding: var(--spacing-lg) 0;
 }
 
 .cta-section h2 {
-    color: var(--color-primary-dark); /* Cambiado a texto azul oscuro */
+    color: inherit; /* Hereda el color blanco de la sección */
 }
 
 .cta-section p {
     font-size: 1.1rem;
-    color: var(--color-primary-dark); /* Cambiado a texto azul oscuro */
+    color: inherit; /* Hereda el color blanco de la sección */
     margin-bottom: var(--spacing-md);
     text-align: center; /* Centrar el texto en la sección CTA */
 }
@@ -1387,9 +1417,18 @@ a:hover {
     scrollbar-color: var(--color-primary) #eee;
 }
 
-.reel-track::-webkit-scrollbar { height: 6px; }
-.reel-track::-webkit-scrollbar-thumb { background: var(--color-primary); border-radius: 10px; }
-
+/* Estilos de scrollbar para navegadores WebKit (Chrome, Safari) */
+.reel-track::-webkit-scrollbar {
+    height: 6px;
+}
+.reel-track::-webkit-scrollbar-track {
+    background: #eee;
+}
+.reel-track::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border-radius: 10px;
+}
+ 
 .gallery-item {
     flex: 0 0 300px; /* Ancho de cada foto en la cinta */
     scroll-snap-align: center;
@@ -1398,6 +1437,15 @@ a:hover {
     height: 220px;
     position: relative;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.gallery-section {
+    background-color: var(--color-background-soft);
+}
+
+.gallery-main-video {
+    max-width: 600px;
+    width: 100%;
 }
 
 .gallery-item img {
@@ -1412,50 +1460,4 @@ a:hover {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
-}
-/* Fondos para romper el blanco */
-section:nth-of-type(even) {
-    background-color: #f9f9f9; /* Un gris casi imperceptible que da elegancia */
-}
-
-footer {
-    background-color: #003366; /* Azul profundo institucional */
-    color: #ffffff;
-    padding: 40px 20px;
-    text-align: center;
-}
-/* Color dorado para títulos y acentos */
-h1, h2, .resaltado {
-    color: #d4af37; /* Dorado metálico */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
-
-/* Efecto de resplandor en el menú */
-nav a:hover {
-    color: #ffd700; 
-    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
-    transition: 0.3s;
-}
-/* Tarjetas con sombra azulada */
-.tarjeta, .card, .info-box {
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    border: none;
-    box-shadow: 0 4px 15px rgba(0, 51, 102, 0.15); /* Sombra con un toque de azul */
-    transition: transform 0.3s ease;
-}
-
-.tarjeta:hover {
-    transform: translateY(-5px); /* Se eleva un poco al pasar el mouse */
-}
-/* Capa sobre la imagen principal */
-.hero-section {
-    position: relative;
-    background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.5)), url('images/hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 100px 20px;
-    text-align: center;
 }
