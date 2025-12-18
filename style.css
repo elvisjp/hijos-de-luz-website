@@ -1006,18 +1006,19 @@ a:hover {
  * ==============================
  */
 .cta-section {
-    background-color: var(--color-primary-dark);
-    color: var(--color-background);
+    background-color: var(--color-background); /* Cambiado a fondo blanco */
+    color: var(--color-primary-dark); /* Cambiado a texto azul oscuro */
     text-align: center;
     padding: var(--spacing-lg) 0;
 }
 
 .cta-section h2 {
-    color: var(--color-background);
+    color: var(--color-primary-dark); /* Cambiado a texto azul oscuro */
 }
 
 .cta-section p {
     font-size: 1.1rem;
+    color: var(--color-primary-dark); /* Cambiado a texto azul oscuro */
     margin-bottom: var(--spacing-md);
     text-align: center; /* Centrar el texto en la sección CTA */
 }
