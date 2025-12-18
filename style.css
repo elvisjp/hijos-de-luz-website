@@ -58,6 +58,15 @@ body {
     text-shadow: var(--text-shadow);
 }
 
+/* Forzar que el contenido no se meta debajo en el Index */
+main {
+    padding-top: 95px; /* Aumentamos a 95px para dar más aire en el Index */
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+
 /* Contenedor central */
 .container {
     max-width: 1200px;
@@ -85,6 +94,7 @@ h3 { font-size: 1.75rem; }
 
 p {
     margin-bottom: var(--spacing-sm);
+    text-align: justify; /* Justifica el texto para alinear ambos bordes */
 }
 
 a {
@@ -110,6 +120,14 @@ a:hover {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
+}
+
+/* Estilo de foco personalizado para mejorar la accesibilidad */
+:focus-visible {
+    outline: 3px solid var(--color-primary-light);
+    outline-offset: 2px;
+    border-radius: 2px; /* Opcional: para redondear el contorno */
+    transition: none; /* El foco debe aparecer instantáneamente */
 }
 
 /*
@@ -187,6 +205,25 @@ a:hover {
     gap: 0.5rem;
 }
 
+/* Typewriter Effect */
+.typewriter-container {
+    display: inline-block;
+}
+
+.typewriter-text::after {
+    content: '|';
+    display: inline-block;
+    margin-left: 5px;
+    animation: blink-caret 0.75s step-end infinite;
+    color: var(--color-primary);
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 
 /*
  * ==============================
@@ -198,8 +235,9 @@ a:hover {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 3000; /* Z-index alto para que esté por encima de todo */
     padding: var(--spacing-sm) 0;
+    background-color: transparent; 
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -209,6 +247,7 @@ a:hover {
     align-items: center;
 }
 
+/* Estilo para cuando el usuario hace scroll */
 .main-header.scrolled {
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: var(--shadow-md);
@@ -290,8 +329,8 @@ a:hover {
  */
 .hero-section {
     position: relative;
-    height: 100vh;
-    min-height: 600px;
+    height: auto; /* Altura automática en lugar de pantalla completa */
+    min-height: auto;
     display: flex;
     align-items: center;
     text-align: center;
@@ -313,33 +352,103 @@ a:hover {
     object-fit: cover; /* Por defecto, cubre todo el espacio */
 }
 
-/* Ajuste específico para la nueva imagen de logo */
-.hero-bg img[src*="logoinstitucional.png"] {
-    object-fit: contain; /* Evita que el logo se deforme */
-    padding: var(--spacing-xl); /* Añade un poco de aire alrededor */
+/* Ajuste para la imagen de admisiones para que se vea completa */
+.page-header .hero-bg {
+    background-color: #333; /* Fondo oscuro para la imagen contenida */
+}
+.page-header .hero-bg img {
+    object-fit: contain; /* Asegura que toda la imagen sea visible */
+}
+/* Ajuste para la nueva imagen de oferta académica */
+.page-header .hero-bg img[src*="barner.png"] {
+    object-fit: cover; /* Esta imagen sí debe cubrir el espacio */
+}
+/* Eliminamos el overlay oscuro que opacaba el logo */
+/* .hero-bg::after { ... } */
+ 
+/* Cambiamos el fondo de la sección hero para que el logo resalte */
+.hero-section#inicio-logo { /* Selector específico para el logo del index */
+    padding: var(--spacing-md) 0;
+    min-height: auto;
+    background-color: var(--color-background-soft);
+    color: var(--color-text-dark);
 }
 
-/* Overlay oscuro para mejorar contraste */
-.hero-bg::after {
+/* Estilo para los encabezados de las páginas internas */
+.page-header {
+    height: 40vh;
+    min-height: 300px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-background);
+}
+
+.page-header::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6); 
+    background: rgba(0, 0, 0, 0.5); /* Overlay oscuro para legibilidad */
+    z-index: 0;
+}
+
+/* Modificador para alinear el contenido del header a la derecha y abajo */
+.page-header--align-bottom-right {
+    align-items: flex-end; /* Alinea verticalmente abajo */
+    justify-content: flex-end; /* Alinea horizontalmente a la derecha */
+    text-align: right;
+    padding-bottom: var(--spacing-md); /* Añade un poco de espacio inferior */
+}
+
+/* Estilos para el hero con tira de imágenes (sobre-nosotros.html) */
+.image-strip-hero {
+    height: 40vh;
+    min-height: 300px;
+}
+
+.image-strip-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.image-strip {
+    display: flex;
+    width: 200%; /* Ancho para dos sets de imágenes */
+    height: 100%;
+    animation: scroll-strip 40s linear infinite;
+}
+
+.image-strip img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes scroll-strip {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Se desplaza la mitad del ancho total */
 }
 
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
-    padding-top: 50px; /* Espacio para el header fijo */
 }
 
 .hero-content h1 {
-    color: var(--color-background);
+    color: inherit; /* Hereda el color de .hero-section o .page-header */
+    position: relative; z-index: 1; /* Para que esté sobre el overlay */
     margin-bottom: var(--spacing-sm);
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 12px rgba(255, 255, 255, 0.4);
 }
 
 .hero-content p {
@@ -504,7 +613,7 @@ a:hover {
 }
 
 /* Galería con Filtros */
-.gallery-filters {
+.gallery__filters {
     display: flex;
     justify-content: center;
     gap: var(--spacing-sm);
@@ -512,22 +621,23 @@ a:hover {
     flex-wrap: wrap;
 }
 
-.filter-btn {
+.gallery__filter-btn {
     background-color: transparent;
     border: 2px solid var(--color-border);
     color: var(--color-text-light);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     cursor: pointer;
+    font-family: inherit; /* Asegurar consistencia de fuente */
     transition: all 0.3s ease;
 }
 
-.filter-btn:hover {
+.gallery__filter-btn:hover {
     background-color: var(--color-background-soft);
     border-color: var(--color-primary);
 }
 
-.filter-btn.active {
+.gallery__filter-btn--active {
     background-color: var(--color-primary);
     color: var(--color-background);
     border-color: var(--color-primary);
@@ -539,7 +649,7 @@ a:hover {
     gap: 10px;
 }
 
-.gallery-item {
+.gallery__item {
     transition: transform 0.3s ease, opacity 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -548,7 +658,7 @@ a:hover {
 }
 
 /* Estilos para items de video */
-.gallery-item.video-item .video-overlay {
+.gallery__item--video .gallery__video-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -564,31 +674,61 @@ a:hover {
     transition: background 0.3s ease;
 }
 
-.gallery-item.video-item:hover .video-overlay {
+.gallery__item--video:hover .gallery__video-overlay {
     background: rgba(0, 0, 0, 0.6);
 }
 
-.video-overlay .play-icon {
+.gallery__play-icon {
     font-size: 3rem;
     text-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-.gallery-item img {
+.gallery__image {
     width: 100%;
     height: 250px;
     object-fit: cover;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.gallery-item.hide {
+.gallery__item--hidden {
     transform: scale(0.9);
     opacity: 0;
     display: none;
 }
 
-.gallery-item img:hover {
+.gallery__item:hover .gallery__image {
     transform: scale(1.02);
     box-shadow: var(--shadow-md);
+}
+
+/* Estilos para el botón de "Me Gusta" en la galería */
+.gallery-item-actions {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0;
+    transition: transform 0.2s ease;
+}
+
+.like-btn.liked {
+    color: #ff4d4d; /* Color rojo para el corazón */
+    transform: scale(1.2);
 }
 
 /*
@@ -676,6 +816,77 @@ a:hover {
     margin-top: var(--spacing-lg);
 }
 
+.academic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.academic-card {
+    /* Estilos para tarjeta con imagen de fondo */
+    position: relative;
+    min-height: 350px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    color: var(--color-background);
+    display: flex;
+    align-items: flex-end; /* Alinea el contenido en la parte inferior */
+    transition: transform 0.3s ease;
+}
+
+.academic-card:hover {
+    transform: scale(1.02);
+}
+
+.academic-card-overlay {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: var(--spacing-md);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0)); /* Gradiente para legibilidad */
+}
+
+.academic-card h3 {
+    color: var(--color-background);
+}
+
+/* Estilos para la nueva sección de metodología en oferta-academica.html */
+.method-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.method-card {
+    position: relative;
+    min-height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    color: var(--color-background);
+    display: flex;
+    align-items: flex-end; /* Alinea el contenido en la parte inferior */
+    transition: transform 0.3s ease;
+}
+
+.method-card:hover {
+    transform: scale(1.02);
+}
+
+.method-card-overlay {
+    position: relative;
+    z-index: 2;
+    padding: var(--spacing-md);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* Gradiente para legibilidad */
+}
+
+.method-card h3 {
+    color: var(--color-background);
+}
+
 .step-card {
     padding: var(--spacing-md);
     border: 1px solid var(--color-primary-light);
@@ -690,6 +901,7 @@ a:hover {
     color: var(--color-primary);
     margin-bottom: var(--spacing-sm);
 }
+
 
 .requirements-list {
     list-style: disc;
@@ -794,19 +1006,21 @@ a:hover {
  * ==============================
  */
 .cta-section {
-    background-color: var(--color-primary-dark);
-    color: var(--color-background);
+    background-color: var(--color-background); /* Cambiado a fondo blanco */
+    color: var(--color-primary-dark); /* Cambiado a texto azul oscuro */
     text-align: center;
     padding: var(--spacing-lg) 0;
 }
 
 .cta-section h2 {
-    color: var(--color-background);
+    color: var(--color-primary-dark); /* Cambiado a texto azul oscuro */
 }
 
 .cta-section p {
     font-size: 1.1rem;
+    color: var(--color-primary-dark); /* Cambiado a texto azul oscuro */
     margin-bottom: var(--spacing-md);
+    text-align: center; /* Centrar el texto en la sección CTA */
 }
 
 /*
@@ -1082,6 +1296,10 @@ a:hover {
         grid-template-columns: 1fr; /* Apilamiento */
     }
 
+    .method-grid {
+        grid-template-columns: 1fr; /* Apila las tarjetas de metodología */
+    }
+
     .program-card, .program-card.reverse {
         flex-direction: column; /* Apilamiento */
     }
@@ -1121,4 +1339,123 @@ a:hover {
     .footer-col {
         text-align: center;
     }
+}
+
+/* Estilos para los botones de filtro de galería */
+.gallery-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    padding: 0.6rem 1.5rem;
+    border: 2px solid var(--color-primary);
+    background: transparent;
+    color: var(--color-primary);
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, 
+.filter-btn.active {
+    background-color: var(--color-primary);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+/* --- ESTILO DE CINTAS (REELS) --- */
+.gallery-reel {
+    display: none; /* Oculto por defecto */
+    animation: fadeIn 0.5s ease;
+}
+
+.gallery-reel.active {
+    display: block; /* Solo se muestra la cinta activa */
+}
+
+.reel-track {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px 5px;
+    scroll-snap-type: x mandatory; /* Hace que las fotos se "ajusten" al deslizar */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) #eee;
+}
+
+.reel-track::-webkit-scrollbar { height: 6px; }
+.reel-track::-webkit-scrollbar-thumb { background: var(--color-primary); border-radius: 10px; }
+
+.gallery-item {
+    flex: 0 0 300px; /* Ancho de cada foto en la cinta */
+    scroll-snap-align: center;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 220px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img { transform: scale(1.05); }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Fondos para romper el blanco */
+section:nth-of-type(even) {
+    background-color: #f9f9f9; /* Un gris casi imperceptible que da elegancia */
+}
+
+footer {
+    background-color: #003366; /* Azul profundo institucional */
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+/* Color dorado para títulos y acentos */
+h1, h2, .resaltado {
+    color: #d4af37; /* Dorado metálico */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Efecto de resplandor en el menú */
+nav a:hover {
+    color: #ffd700; 
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+    transition: 0.3s;
+}
+/* Tarjetas con sombra azulada */
+.tarjeta, .card, .info-box {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 51, 102, 0.15); /* Sombra con un toque de azul */
+    transition: transform 0.3s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px); /* Se eleva un poco al pasar el mouse */
+}
+/* Capa sobre la imagen principal */
+.hero-section {
+    position: relative;
+    background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.5)), url('images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
 }
