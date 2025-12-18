@@ -370,7 +370,7 @@ a:hover {
 .hero-section#inicio-logo { /* Selector específico para el logo del index */
     padding: 0; /* El padding lo controla el logo */
     min-height: 0; /* Compatibilidad con navegadores antiguos */
-    background-color: transparent; /* Eliminamos el fondo para integrar el logo */
+    background-color: var(--color-background-soft); /* Añadimos un fondo azulado claro */
     color: var(--color-text-dark);
 }
 
@@ -393,6 +393,7 @@ a:hover {
 
 .hero-subtitle {
     font-size: 1.25rem;
+    text-align: center; /* Centramos el subtítulo del hero */
 }
 
 /* Estilo para los encabezados de las páginas internas */
